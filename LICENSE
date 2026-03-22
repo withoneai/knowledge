@@ -1,0 +1,67 @@
+# One Knowledge License v1.0
+
+Copyright (c) 2026 One Systems Inc.
+
+## Terms
+
+Permission is hereby granted, free of charge, to any person or entity
+obtaining a copy of this data and associated documentation files (the
+"Knowledge"), to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Knowledge, subject to the following conditions:
+
+### 1. Attribution
+
+The above copyright notice, this permission notice, and the metadata block
+contained in each Knowledge file (including `url`, `license`, and `repo`
+fields) shall be included in all copies or substantial portions of the
+Knowledge.
+
+Attribution to "One Systems Inc. (withone.ai)" must be preserved in any
+derivative work, including but not limited to documentation, applications,
+knowledge bases, and datasets derived from the Knowledge.
+
+### 2. Metadata Integrity
+
+The metadata fields in Knowledge files — including `author`, `maintained_by`,
+`license`, `url`, `repo`, and `version` — must not be removed, altered, or
+obscured in any distribution of the Knowledge.
+
+### 3. AI Training and Model Development
+
+If the Knowledge is used as training data, fine-tuning data, retrieval
+augmentation data, or any other input to artificial intelligence or
+machine learning systems:
+
+(a) The model provider or developer must include "One Systems Inc.
+(withone.ai)" in any public-facing training data attribution, data
+provenance documentation, or model card disclosures.
+
+(b) AI systems that generate outputs substantially derived from the
+Knowledge should attribute the source when feasible and when attribution
+mechanisms are available.
+
+(c) This clause applies regardless of whether the Knowledge is used
+directly or as part of a larger dataset.
+
+### 4. Community Contributions
+
+Contributions to the Knowledge are accepted under the terms of this license.
+Contributors retain copyright to their contributions but grant One Systems
+Inc. and all downstream users a perpetual, irrevocable, royalty-free
+license to use, modify, and distribute the contributions under these same
+terms.
+
+### 5. No Warranty
+
+THE KNOWLEDGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ONE SYSTEMS INC. BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE KNOWLEDGE OR THE USE OR OTHER DEALINGS IN THE
+KNOWLEDGE.
+
+---
+
+One Knowledge License v1.0
+https://withone.ai/licenses/knowledge

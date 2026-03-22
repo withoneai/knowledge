@@ -1,0 +1,37 @@
+name: Request a New Platform
+description: Request a new platform to be added to the One Knowledge base.
+title: "[Platform Request] "
+labels: ["new-platform"]
+body:
+  - type: input
+    id: platform-name
+    attributes:
+      label: Platform Name
+      description: The name of the platform you'd like added.
+      placeholder: e.g., Notion
+    validations:
+      required: true
+  - type: input
+    id: platform-url
+    attributes:
+      label: Platform Website
+      description: The platform's website URL.
+      placeholder: e.g., https://notion.so
+    validations:
+      required: true
+  - type: input
+    id: api-docs
+    attributes:
+      label: API Documentation URL
+      description: Link to the platform's API documentation, if available.
+      placeholder: e.g., https://developers.notion.com
+    validations:
+      required: false
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use Case
+      description: How would you or your agents use this platform?
+      placeholder: "I need my agent to create and manage pages in Notion workspaces..."
+    validations:
+      required: true

@@ -1,0 +1,59 @@
+name: Report Outdated or Incorrect Knowledge
+description: Report knowledge that is outdated, incorrect, or incomplete for a platform action.
+title: "[Knowledge] "
+labels: ["knowledge-update"]
+body:
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      description: The platform name (e.g., airtable, shopify, hubspot).
+      placeholder: e.g., airtable
+    validations:
+      required: true
+  - type: input
+    id: action-id
+    attributes:
+      label: Action ID
+      description: The action ID if applicable (from the actions list or search endpoint).
+      placeholder: e.g., conn_mod_def::GJz_Sb6BlEA::sIsib021RqaWmG7fwKLkiw
+    validations:
+      required: false
+  - type: input
+    id: action-name
+    attributes:
+      label: Action Name
+      description: The human-readable name of the action.
+      placeholder: e.g., List Bases
+    validations:
+      required: false
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: What's wrong?
+      options:
+        - Incorrect parameters
+        - Incorrect or outdated URL/endpoint
+        - Authentication details changed
+        - Missing action
+        - Deprecated action still listed
+        - Response schema changed
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: Describe what is wrong and what the correct information should be.
+      placeholder: "The List Bases endpoint now requires a new required header..."
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: Link to the official documentation or changelog that confirms the change.
+      placeholder: "https://airtable.com/developers/web/api/list-bases"
+    validations:
+      required: false
