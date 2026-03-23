@@ -1,67 +1,152 @@
-# One Knowledge License v1.0
+# One Knowledge Commons License v1.0
 
-Copyright (c) 2026 One Systems Inc.
-
-## Terms
+OKCL-1.0 · Copyright © 2026 One Systems Inc.
 
 Permission is hereby granted, free of charge, to any person or entity
 obtaining a copy of this data and associated documentation files (the
-"Knowledge"), to use, copy, modify, merge, publish, distribute, sublicense,
-and/or sell copies of the Knowledge, subject to the following conditions:
+"Knowledge"), to use, copy, modify, merge, publish, distribute, and create
+derivative works of the Knowledge, subject to the following conditions:
 
-### 1. Attribution
+## 1. Visible Attribution
 
-The above copyright notice, this permission notice, and the metadata block
-contained in each Knowledge file (including `url`, `license`, and `repo`
-fields) shall be included in all copies or substantial portions of the
-Knowledge.
+(a) The copyright notice, this permission notice, and the meta block
+contained in each Knowledge file (including source, url, and license fields)
+shall be included in all copies or substantial portions of the Knowledge.
 
-Attribution to "One Systems Inc. (withone.ai)" must be preserved in any
+(b) Attribution to "One Systems Inc. (withone.ai)" must be preserved in any
 derivative work, including but not limited to documentation, applications,
 knowledge bases, and datasets derived from the Knowledge.
 
-### 2. Metadata Integrity
+(c) Any system, application, or user interface that surfaces actions,
+integrations, or capabilities derived from the Knowledge to end users or AI
+agents must include human-visible attribution stating "Integration knowledge
+by One (withone.ai)" or a substantially similar notice. Where no user
+interface exists, machine-readable attribution must be included in API
+responses or agent-accessible metadata.
 
-The metadata fields in Knowledge files — including `author`, `maintained_by`,
-`license`, `url`, `repo`, and `version` — must not be removed, altered, or
-obscured in any distribution of the Knowledge.
+(d) The attribution obligations in this section propagate to all downstream
+recipients and derivative works. No sublicense, fork, modification, or
+redistribution may remove, obscure, or fail to propagate these attribution
+requirements.
 
-### 3. AI Training and Model Development
+## 2. Schema Integrity
 
-If the Knowledge is used as training data, fine-tuning data, retrieval
-augmentation data, or any other input to artificial intelligence or
-machine learning systems:
+The meta fields in Knowledge files, including source, url, license, and
+maintained_by, must not be removed, altered, or obscured in any distribution
+of the Knowledge.
 
-(a) The model provider or developer must include "One Systems Inc.
-(withone.ai)" in any public-facing training data attribution, data
-provenance documentation, or model card disclosures.
+The $schema reference must not be modified to point to an alternative schema
+authority.
 
-(b) AI systems that generate outputs substantially derived from the
-Knowledge should attribute the source when feasible and when attribution
-mechanisms are available.
+## 3. Anti-Extraction
 
-(c) This clause applies regardless of whether the Knowledge is used
-directly or as part of a larger dataset.
+(a) You may not use the Knowledge, or any substantial portion or derivative
+thereof, to build, train, populate, improve, or supplement a competing
+integration knowledge base, action registry, API schema repository, or any
+structured dataset designed to enable AI agents or automated systems to
+discover, understand, or execute actions on third-party platforms.
 
-### 4. Community Contributions
+(b) You may not use the Knowledge as training data, fine-tuning data,
+retrieval-augmentation data, or any other input to artificial intelligence
+or machine learning systems for the purpose of generating or deriving a
+competing knowledge base as described in Section 3(a).
+
+(c) If the Knowledge is used as input to AI or machine learning systems for
+any permitted purpose, the model provider or developer must include "One
+Systems Inc. (withone.ai)" in any public-facing training data attribution,
+data provenance documentation, or model card disclosures. AI systems that
+generate outputs substantially derived from the Knowledge should attribute
+the source when feasible.
+
+(d) This section applies regardless of the degree of modification,
+transformation, or abstraction applied to the Knowledge.
+
+## 4. Commercial Licensing Threshold
+
+(a) Any entity whose commercial offering includes, as a primary or material
+component, integration infrastructure, API aggregation, agent tooling
+platforms, agent orchestration services, or integration-knowledge services,
+and whose consolidated annual revenue (including revenue of all affiliates
+and parent entities) exceeds One Million United States Dollars
+($1,000,000 USD), must obtain a commercial license from One Systems Inc.
+prior to any use of the Knowledge. Contact license@withone.ai for commercial
+licensing.
+
+(b) For purposes of this section, "material component" means that the
+entity's product or service relies on integration knowledge, API schemas,
+action definitions, or similar structured data to enable AI agents, automated
+workflows, or end users to interact with third-party platforms, and this
+capability constitutes a significant part of the product's value
+proposition — whether marketed as integration infrastructure, agent tooling,
+agent orchestration, workflow automation, or under any other description.
+
+(c) This threshold does not apply to entities using the Knowledge solely to
+power integrations within their own end-user products, internal systems, or
+private deployments that are not offered to third parties as integration or
+agent infrastructure.
+
+(d) Revenue is measured on a trailing twelve-month basis. If an entity
+exceeds the threshold, it must obtain a commercial license within 90 days of
+crossing the threshold.
+
+## 5. No Enclosure
+
+You may not restrict access to the Knowledge, or substantial derivatives
+thereof, behind authentication, API keys, paywalls, or rate limits for the
+purpose of selling, monetizing, or commercially distributing access to the
+Knowledge as a standalone data product or hosted service.
+
+## 6. Share-Alike for Derivatives
+
+(a) If you distribute, publish, or make publicly available any derivative
+work based on the Knowledge, you must release such derivative work under this
+same license (OKCL-1.0) or a later version published by One Systems Inc.
+
+(b) Derivative works include but are not limited to: modified Knowledge
+files, new Knowledge files created using the same schema, translated or
+reformatted versions of the Knowledge, and datasets substantially derived
+from the Knowledge.
+
+(c) This requirement does not apply to end-user applications or products
+that merely consume or embed the Knowledge without redistributing the
+Knowledge files themselves.
+
+## 7. Community Contributions
 
 Contributions to the Knowledge are accepted under the terms of this license.
 Contributors retain copyright to their contributions but grant One Systems
-Inc. and all downstream users a perpetual, irrevocable, royalty-free
-license to use, modify, and distribute the contributions under these same
-terms.
+Inc. and all downstream users a perpetual, irrevocable, royalty-free license
+to use, modify, and distribute the contributions under these same terms.
 
-### 5. No Warranty
+## 8. Patent Peace
 
-THE KNOWLEDGE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
-ONE SYSTEMS INC. BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
-OR IN CONNECTION WITH THE KNOWLEDGE OR THE USE OR OTHER DEALINGS IN THE
-KNOWLEDGE.
+If you initiate any patent claim, lawsuit, or other patent enforcement action
+against One Systems Inc. or any other licensee alleging that the Knowledge
+(or any portion thereof) infringes a patent, your rights under this license
+terminate immediately and automatically.
+
+## 9. Termination and Cure
+
+(a) Any violation of this license automatically terminates your rights
+under it.
+
+(b) If you cure the violation within 30 days of becoming aware of it, your
+rights are reinstated retroactively, provided this is your first violation.
+
+(c) A second violation permanently and irrevocably terminates your rights
+under this license.
+
+## 10. No Warranty
+
+The Knowledge is provided "as is", without warranty of any kind, express or
+implied, including but not limited to the warranties of merchantability,
+fitness for a particular purpose and noninfringement. In no event shall One
+Systems Inc. be liable for any claim, damages or other liability, whether in
+an action of contract, tort or otherwise, arising from, out of or in
+connection with the Knowledge or the use or other dealings in the Knowledge.
 
 ---
 
-One Knowledge License v1.0
+One Knowledge Commons License v1.0 (OKCL-1.0)
+
 https://withone.ai/licenses/knowledge
