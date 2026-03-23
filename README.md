@@ -1,4 +1,4 @@
-<img src="https://assets.withone.ai/banners/knowledge.png" alt="One Knowledge — The world's largest open knowledge base for APIs." style="border-radius: 5px;">
+<img src="https://assets.withone.ai/banners/knowledge.png?v=2" alt="One Knowledge — The world's largest open knowledge base for APIs." style="border-radius: 5px;">
 
 <h3 align="center">One Knowledge</h3>
 <p align="center">The world's largest API knowledge base, built for agents.</p>
