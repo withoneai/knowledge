@@ -24,7 +24,7 @@
   &nbsp;
   <a href="https://withone.ai/knowledge"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.withone.ai%2Fopen%2Fcount%2Ftools" alt="tools"></a>
   &nbsp;
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-One--Knowledge--1.0-purple" alt="license"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-OKCL--1.0-blue.svg" alt="license"></a>
 </p>
 
 ## Why
