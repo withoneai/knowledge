@@ -97,14 +97,8 @@ The knowledge is maintained by [One Systems Inc.](https://withone.ai) and verifi
 - **[Report outdated or incorrect knowledge](../../issues/new?template=report-outdated-knowledge.yml)** - an action's parameters changed, auth flow updated, endpoint deprecated, etc.
 - **[Request a new platform](../../issues/new?template=request-new-platform.yml)** - a platform you'd like to see added to the knowledge base.
 
-Since the knowledge data lives behind the API (40,000+ action files across 250+ platforms), we can't accept pull requests for knowledge content directly. Your issues drive what we verify and update next.
-
 ## License
 
 This project is licensed under the [One Knowledge License v1.0](./LICENSE).
 
 The knowledge is free to use, modify, and distribute with attribution. See the full license for details on metadata integrity, AI training usage, and community contributions.
-
-<p align="center">
-  <a href="https://withone.ai">withone.ai</a>
-</p>
