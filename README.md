@@ -31,7 +31,7 @@
 
 API documentation is scattered across hundreds of sites, buried in PDFs, locked behind developer portals, and constantly going stale. AI agents are left to guess at parameters, hallucinate auth flows, and fail silently on edge cases.
 
-One Knowledge fixes this. We've built structured, human-verified knowledge for every tool across 250+ platforms and we're opening all of it. 40,000+ tools, every parameter, every auth flow, every edge case. Structured for machines. Verified by humans. Free forever.
+One Knowledge fixes this. We've built structured, human-verified knowledge for every tool across 500+ platforms and we're opening all of it. 80,000+ tools, every parameter, every auth flow, every edge case. Structured for machines. Verified by humans. Free forever.
 
 [Browse it all →](https://withone.ai/knowledge)
 
@@ -46,7 +46,7 @@ one init
 
 That's it. The CLI will prompt you for your API key (get one free from the [One Dashboard](https://app.withone.ai/settings/api-keys)) and configure everything for your environment: Claude Code, Cursor, Claude Desktop, Windsurf, or any MCP-compatible agent.
 
-Once connected, your agent can search for actions, read full knowledge, and execute tools across all 250+ platforms.
+Once connected, your agent can search for actions, read full knowledge, and execute tools across all 500+ platforms.
 
 ## API
 
