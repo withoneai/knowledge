@@ -31,22 +31,32 @@
 
 API documentation is scattered across hundreds of sites, buried in PDFs, locked behind developer portals, and constantly going stale. AI agents are left to guess at parameters, hallucinate auth flows, and fail silently on edge cases.
 
-One Knowledge fixes this. We've built structured, human-verified knowledge for every tool across 500+ platforms and we're opening all of it. 80,000+ tools, every parameter, every auth flow, every edge case. Structured for machines. Verified by humans. Free forever.
+One Knowledge fixes this. We've built structured, human-verified knowledge for every tool across 1,000+ platforms and we're opening all of it. 130,000+ tools, every parameter, every auth flow, every edge case. Structured for machines. Verified by humans, and tested before an agent runs it. Open source, so one fix reaches every agent. Free forever.
 
 [Browse it all →](https://withone.ai/knowledge)
 
 ## Quick Start
 
-The fastest way to get knowledge into your agent is through the [One CLI](https://github.com/withoneai/cli):
+Get the knowledge into your agent in one of two ways. Both are free.
+
+**Remote MCP.** Point any MCP-compatible agent at One's hosted server and sign in when it asks:
+
+```bash
+claude mcp add --transport http one https://mcp.withone.ai/mcp
+```
+
+Setup guides for Cursor, Codex, Windsurf and other agents are at [withone.ai/mcp](https://withone.ai/mcp).
+
+**The [One CLI](https://github.com/withoneai/cli).** For agents that can run a command line:
 
 ```bash
 npm install -g @withone/cli
 one init
 ```
 
-That's it. The CLI will prompt you for your API key (get one free from the [One Dashboard](https://app.withone.ai/settings/api-keys)) and configure everything for your environment: Claude Code, Cursor, Claude Desktop, Windsurf, or any MCP-compatible agent.
+The CLI will prompt you for your API key (get one free from the [One Dashboard](https://app.withone.ai/settings/api-keys)) and configure everything for your environment: Claude Code, Cursor, Claude Desktop, Windsurf, or any MCP-compatible agent.
 
-Once connected, your agent can search for actions, read full knowledge, and execute tools across all 500+ platforms.
+Once connected, your agent finds the actions a task needs, with their knowledge, in one call (`find_one_actions` over MCP, `one actions find` in the CLI), then executes them across all 1,000+ platforms.
 
 ## API
 
@@ -62,15 +72,24 @@ x-one-secret: YOUR_ONE_API_KEY
 |----------|-------------|
 | `GET /open/knowledge/:platform` | Get a platform's overview |
 | `GET /open/knowledge/:platform/auth` | Get a platform's authentication details |
-| `GET /open/knowledge/:platform/actions` | List a platform's actions (paginate via `page` query param) |
-| `GET /open/knowledge/:platform/actions/search?query=` | Search a platform's actions |
+| `GET /open/knowledge/:platform/actions` | List a platform's actions. Paginate with `page` (from 1) and `limit` (default 20, max 150) |
+| `GET /open/knowledge/:platform/actions/search?query=` | Search a platform's actions, with an optional `limit` |
 | `GET /open/knowledge/:platform/actions/:actionId` | Get an action's full knowledge |
+| `GET /open/count/platforms`, `GET /open/count/tools` | Live counts, as [shields.io](https://shields.io/badges/endpoint-badge) badge JSON. No key needed |
 
 **Base URL:** `https://api.withone.ai`
+
+Knowledge comes back as Markdown with YAML front matter, in a `markdown` field. Action lists come back as `{ rows, total, pages, page }`, each row with the action's `id`, `title`, `method` and `path`; search returns the matching rows.
 
 ```bash
 # Example: Get Airtable's knowledge
 curl 'https://api.withone.ai/open/knowledge/airtable' \
+  --header 'x-one-secret: YOUR_ONE_API_KEY'
+
+# Example: List Airtable's first 50 actions, then read one by its id
+curl 'https://api.withone.ai/open/knowledge/airtable/actions?limit=50' \
+  --header 'x-one-secret: YOUR_ONE_API_KEY'
+curl 'https://api.withone.ai/open/knowledge/airtable/actions/ACTION_ID' \
   --header 'x-one-secret: YOUR_ONE_API_KEY'
 ```
 
@@ -82,13 +101,14 @@ Every piece of knowledge is structured, complete, and ready for machine consumpt
 
 | Component | Description |
 |-----------|-------------|
-| **Metadata** | Platform name, category, version, image, last updated date |
-| **Authentication** | OAuth flows, required credentials, scopes, token refresh details |
-| **Actions** | Every available API action with method, URL, headers |
-| **Parameters** | Required and optional parameters with types and descriptions |
-| **Enforcement Rules** | Constraints that ensure correct API usage (e.g., query params vs body) |
-| **Response Schemas** | Full response structures with field types and descriptions |
-| **Examples** | Real request/response examples for every action |
+| **Metadata** | YAML front matter: platform name, category, version, image, URL, license, maintainer, last updated date |
+| **Authentication** | OAuth details, required credentials, scopes, token refresh details |
+| **Actions** | Every available API action with its prerequisites, method, URL, headers and description |
+| **Parameters** | Required and optional path, query and body parameters, with types and descriptions |
+| **Enforcement Rules** | Constraints that ensure correct API usage (e.g., query params vs body), with valid and invalid examples |
+| **Response Schemas** | Full response structures for each outcome, with field types and descriptions |
+| **Examples** | A sample request and worked usage examples for every action |
+| **Behavior & Notes** | What the call does step by step, and its limits and caveats (time windows, expiring URLs, deprecations) |
 
 ## Contributing
 
@@ -99,6 +119,6 @@ The knowledge is maintained by [One Systems Inc.](https://withone.ai) and verifi
 
 ## License
 
-This project is licensed under the [One Knowledge License v1.0](./LICENSE).
+This project is licensed under the [One Knowledge Commons License v1.0](./LICENSE) (OKCL-1.0).
 
 The knowledge is free to use, modify, and distribute with attribution. See the full license for details on metadata integrity, AI training usage, and community contributions.
