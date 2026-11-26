@@ -1,124 +1,114 @@
-<img src="https://assets.withone.ai/banners/knowledge.png?v=2" alt="One Knowledge — The world's largest open knowledge base for APIs." style="border-radius: 5px;">
+<p>
+  <a href="https://withone.ai/knowledge">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/withoneai/knowledge/main/assets/banner-dark.svg">
+      <img src="https://raw.githubusercontent.com/withoneai/knowledge/main/assets/banner-light.svg" alt="One Knowledge. The world's largest API knowledge base, built for agents." width="100%">
+    </picture>
+  </a>
+</p>
 
 <h3 align="center">One Knowledge</h3>
-<p align="center">The world's largest API knowledge base, built for agents.</p>
 
 <p align="center">
-  <a href="https://withone.ai/knowledge"><strong>Browse Knowledge</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://withone.ai"><strong>Website</strong></a>
-  &nbsp;·&nbsp;
+  <a href="https://withone.ai/knowledge"><strong>API directory</strong></a>
+  &nbsp;&middot;&nbsp;
+  <a href="https://withone.ai/knowledge/how-to-use"><strong>How to use it</strong></a>
+  &nbsp;&middot;&nbsp;
   <a href="https://withone.ai/docs"><strong>Docs</strong></a>
-  &nbsp;·&nbsp;
+  &nbsp;&middot;&nbsp;
+  <a href="https://withone.ai"><strong>Website</strong></a>
+  &nbsp;&middot;&nbsp;
   <a href="https://app.withone.ai"><strong>Dashboard</strong></a>
-  &nbsp;·&nbsp;
+  &nbsp;&middot;&nbsp;
   <a href="https://withone.ai/changelog"><strong>Changelog</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://x.com/withoneai"><strong>X</strong></a>
-  &nbsp;·&nbsp;
-  <a href="https://linkedin.com/company/withoneai"><strong>LinkedIn</strong></a>
 </p>
 
 <p align="center">
-  <a href="https://withone.ai/knowledge"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.withone.ai%2Fopen%2Fcount%2Fplatforms" alt="platforms"></a>
+  <a href="https://withone.ai/knowledge"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.withone.ai%2Fopen%2Fcount%2Fplatforms&color=447D5D&labelColor=132A21&style=flat-square" alt="platforms"></a>
   &nbsp;
-  <a href="https://withone.ai/knowledge"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.withone.ai%2Fopen%2Fcount%2Ftools" alt="tools"></a>
+  <a href="https://withone.ai/knowledge"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fapi.withone.ai%2Fopen%2Fcount%2Ftools&label=verified%20tools&color=447D5D&labelColor=132A21&style=flat-square" alt="verified tools"></a>
   &nbsp;
-  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-OKCL--1.0-blue.svg" alt="license"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-OKCL--1.0-447D5D?labelColor=132A21&style=flat-square" alt="License OKCL-1.0"></a>
 </p>
 
-## Why
+Agents fail against real systems in predictable ways. Wrong parameters, invented endpoints, an API that changed on Tuesday. One Knowledge knows how each action works before the agent runs it. Every parameter, every auth flow, every edge case. Structured for machines and verified by&nbsp;humans.
 
-API documentation is scattered across hundreds of sites, buried in PDFs, locked behind developer portals, and constantly going stale. AI agents are left to guess at parameters, hallucinate auth flows, and fail silently on edge cases.
+Tools are tested before they are made available to agents. The knowledge is open source, so one fix reaches every agent, and this repo is its public home. Search an app and read its actions in the [API directory](https://withone.ai/knowledge), read the same knowledge over the [open API](#read-it-over-the-api), and open an issue here when something is wrong or&nbsp;missing.
 
-One Knowledge fixes this. We've built structured, human-verified knowledge for every tool across 1,000+ platforms and we're opening all of it. 130,000+ tools, every parameter, every auth flow, every edge case. Structured for machines. Verified by humans, and tested before an agent runs it. Open source, so one fix reaches every agent. Free forever.
+## Use it from your agent
 
-[Browse it all →](https://withone.ai/knowledge)
-
-## Quick Start
-
-Get the knowledge into your agent in one of two ways. Both are free.
-
-**Remote MCP.** Point any MCP-compatible agent at One's hosted server and sign in when it asks:
+Point any MCP agent at One's hosted server and sign in when it&nbsp;asks.
 
 ```bash
 claude mcp add --transport http one https://mcp.withone.ai/mcp
 ```
 
-Setup guides for Cursor, Codex, Windsurf and other agents are at [withone.ai/mcp](https://withone.ai/mcp).
+Or install the [One CLI](https://github.com/withoneai/cli) with `npm install -g @withone/cli` and run `one init`. Setup guides are at&nbsp;[withone.ai/mcp](https://withone.ai/mcp).
 
-**The [One CLI](https://github.com/withoneai/cli).** For agents that can run a command line:
-
-```bash
-npm install -g @withone/cli
-one init
-```
-
-The CLI will prompt you for your API key (get one free from the [One Dashboard](https://app.withone.ai/settings/api-keys)) and configure everything for your environment: Claude Code, Cursor, Claude Desktop, Windsurf, or any MCP-compatible agent.
-
-Once connected, your agent finds the actions a task needs, with their knowledge, in one call (`find_one_actions` over MCP, `one actions find` in the CLI), then executes them across all 1,000+ platforms.
-
-## API
-
-Access knowledge programmatically with the open API. All you need is a free [One API Key](https://app.withone.ai/settings/api-keys).
-
-All requests require the `x-one-secret` header:
-
-```
-x-one-secret: YOUR_ONE_API_KEY
-```
-
-| Endpoint | Description |
-|----------|-------------|
-| `GET /open/knowledge/:platform` | Get a platform's overview |
-| `GET /open/knowledge/:platform/auth` | Get a platform's authentication details |
-| `GET /open/knowledge/:platform/actions` | List a platform's actions. Paginate with `page` (from 1) and `limit` (default 20, max 150) |
-| `GET /open/knowledge/:platform/actions/search?query=` | Search a platform's actions, with an optional `limit` |
-| `GET /open/knowledge/:platform/actions/:actionId` | Get an action's full knowledge |
-| `GET /open/count/platforms`, `GET /open/count/tools` | Live counts, as [shields.io](https://shields.io/badges/endpoint-badge) badge JSON. No key needed |
-
-**Base URL:** `https://api.withone.ai`
-
-Knowledge comes back as Markdown with YAML front matter, in a `markdown` field. Action lists come back as `{ rows, total, pages, page }`, each row with the action's `id`, `title`, `method` and `path`; search returns the matching rows.
+Every task then follows the same three steps. The second one returns the knowledge, with the required parameters and the validation&nbsp;rules.
 
 ```bash
-# Example: Get Airtable's knowledge
+# What am I connected to?
+one list
+
+# Which action, and how? Its knowledge comes back with it.
+one actions find gmail "send an email"
+
+# Do it, through your own connection.
+one actions execute gmail <actionId> <connectionKey>
+```
+
+Over MCP the same steps are `list_one_integrations`, `find_one_actions` and&nbsp;`execute_one_action`.
+
+## Read it over the API
+
+The open API returns the same knowledge. Send a free [API key](https://app.withone.ai/settings/api-keys) in the `x-one-secret` header. The base URL is&nbsp;`https://api.withone.ai`.
+
+| Endpoint | Returns |
+|----------|---------|
+| `GET /open/knowledge/:platform` | The platform's&nbsp;overview |
+| `GET /open/knowledge/:platform/auth` | Its authentication&nbsp;details |
+| `GET /open/knowledge/:platform/actions` | Its actions, paged with `page` (from 1) and `limit` (default 20, max&nbsp;150) |
+| `GET /open/knowledge/:platform/actions/search?query=` | The actions that match, with an optional&nbsp;`limit` |
+| `GET /open/knowledge/:platform/actions/:actionId` | One action's full&nbsp;knowledge |
+| `GET /open/count/platforms` and `GET /open/count/tools` | Live counts as [shields.io](https://shields.io/badges/endpoint-badge) badge JSON. No key&nbsp;needed |
+
+```bash
+# Airtable's overview
 curl 'https://api.withone.ai/open/knowledge/airtable' \
   --header 'x-one-secret: YOUR_ONE_API_KEY'
 
-# Example: List Airtable's first 50 actions, then read one by its id
-curl 'https://api.withone.ai/open/knowledge/airtable/actions?limit=50' \
+# Find an action, then read it by its id
+curl 'https://api.withone.ai/open/knowledge/airtable/actions/search?query=list%20bases' \
   --header 'x-one-secret: YOUR_ONE_API_KEY'
 curl 'https://api.withone.ai/open/knowledge/airtable/actions/ACTION_ID' \
   --header 'x-one-secret: YOUR_ONE_API_KEY'
 ```
 
-For full API documentation, examples, and response schemas, see the [docs](https://withone.ai/docs).
+Knowledge comes back as Markdown with YAML front matter, in a `markdown` field. An action list comes back as `{ rows, total, pages, page }`, and each row carries the action's `id`, `title`, `method` and `path`. Search returns the matching rows as an&nbsp;array.
 
-## What's in the knowledge?
+## What is in an action
 
-Every piece of knowledge is structured, complete, and ready for machine consumption:
+Every action is one Markdown document, and every document has the same&nbsp;parts.
 
-| Component | Description |
-|-----------|-------------|
-| **Metadata** | YAML front matter: platform name, category, version, image, URL, license, maintainer, last updated date |
-| **Authentication** | OAuth details, required credentials, scopes, token refresh details |
-| **Actions** | Every available API action with its prerequisites, method, URL, headers and description |
-| **Parameters** | Required and optional path, query and body parameters, with types and descriptions |
-| **Enforcement Rules** | Constraints that ensure correct API usage (e.g., query params vs body), with valid and invalid examples |
-| **Response Schemas** | Full response structures for each outcome, with field types and descriptions |
-| **Examples** | A sample request and worked usage examples for every action |
-| **Behavior & Notes** | What the call does step by step, and its limits and caveats (time windows, expiring URLs, deprecations) |
+| Part | What it&nbsp;holds |
+|------|---------------|
+| **Metadata** | YAML front matter with the platform, category, version, license, maintainer and the date it was last&nbsp;updated |
+| **Authentication** | OAuth details, required credentials, scopes and token&nbsp;refresh |
+| **Method, URL and&nbsp;headers** | The call itself, with its prerequisites and a&nbsp;description |
+| **Parameters** | Required and optional path, query and body parameters, with types and&nbsp;descriptions |
+| **Enforcement rules** | Constraints that keep a call correct, such as query against body, with valid and invalid&nbsp;examples |
+| **Response** | The structure of each outcome, with field types and&nbsp;descriptions |
+| **Examples** | A sample request and worked usage&nbsp;examples |
+| **Behavior and&nbsp;notes** | What the call does step by step, and its limits and&nbsp;caveats |
 
-## Contributing
+## Fix something or request a&nbsp;platform
 
-The knowledge is maintained by [One Systems Inc.](https://withone.ai) and verified by humans. If you find something outdated, incorrect, or missing, open an issue and we'll fix it.
+One maintains the knowledge, and one fix reaches every agent that reads it. If something is outdated, incorrect or missing, open an&nbsp;issue.
 
-- **[Report outdated or incorrect knowledge](../../issues/new?template=report-outdated-knowledge.yml)** - an action's parameters changed, auth flow updated, endpoint deprecated, etc.
-- **[Request a new platform](../../issues/new?template=request-new-platform.yml)** - a platform you'd like to see added to the knowledge base.
+- [Report outdated or incorrect knowledge](../../issues/new?template=report-outdated-knowledge.yml) when an action's parameters, authentication or endpoint has&nbsp;changed
+- [Request a new platform](../../issues/new?template=request-new-platform.yml) that the knowledge base does not cover&nbsp;yet
 
 ## License
 
-This project is licensed under the [One Knowledge Commons License v1.0](./LICENSE) (OKCL-1.0).
-
-The knowledge is free to use, modify, and distribute with attribution. See the full license for details on metadata integrity, AI training usage, and community contributions.
+One Knowledge is released under the [One Knowledge Commons License v1.0](./LICENSE) (OKCL-1.0). It is free to use, modify and distribute with attribution. It may not be used to build a competing knowledge base, and companies that sell integration or agent infrastructure and earn more than $1M a year need a commercial license. Read the [full text](./LICENSE) before you build on&nbsp;it.

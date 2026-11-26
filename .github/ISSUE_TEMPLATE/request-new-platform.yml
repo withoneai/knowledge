@@ -1,7 +1,7 @@
 name: Request a New Platform
 description: Request a new platform to be added to the One Knowledge base.
 title: "[Platform Request] "
-labels: ["new-platform"]
+labels: ["platform-request"]
 body:
   - type: input
     id: platform-name
